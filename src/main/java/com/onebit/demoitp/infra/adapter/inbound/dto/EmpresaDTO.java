@@ -1,15 +1,14 @@
 package com.onebit.demoitp.infra.adapter.inbound.dto;
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class EmpresaDTO {
 
     private String cuit;

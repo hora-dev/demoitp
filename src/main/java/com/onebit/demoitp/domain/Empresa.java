@@ -1,17 +1,19 @@
 package com.onebit.demoitp.domain;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Empresa {
 
     @Id
@@ -23,7 +25,4 @@ public class Empresa {
 
     private LocalDate fechaAdhesion;
 
-    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Transferencia> transferencias;
 }

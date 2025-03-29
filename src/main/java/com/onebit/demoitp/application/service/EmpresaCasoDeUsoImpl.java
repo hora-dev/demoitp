@@ -17,10 +17,11 @@ public class EmpresaCasoDeUsoImpl implements EmpresaCasoDeUso {
 
     @Override
     public Empresa guardar(EmpresaDTO empresaDTO) {
-        Empresa nuevaEmpresa = new Empresa();
-        nuevaEmpresa.setCuit( empresaDTO.getCuit() );
-        nuevaEmpresa.setRazonSocial( empresaDTO.getRazonSocial() );
-        nuevaEmpresa.setFechaAdhesion( empresaDTO.getFechaAdhesion() );
+        Empresa nuevaEmpresa = Empresa.builder()
+                .cuit( empresaDTO.getCuit() )
+                .razonSocial( empresaDTO.getRazonSocial() )
+                .fechaAdhesion( empresaDTO.getFechaAdhesion() )
+                .build();
         return empresaRepository.save( nuevaEmpresa );
     }
 
