@@ -30,6 +30,7 @@ public class TransferenciaCasoDeUsoImpl implements TransferenciaCasoDeUso {
                 .importe(transferenciaDTO.getImporte())
                 .cuentaCredito(transferenciaDTO.getCuentaCredito())
                 .cuentaDebito(transferenciaDTO.getCuentaDebito())
+                .fechaTransferencia(transferenciaDTO.getFechaTransferencia())
                 .build();
         return transferenciaRepository.save(nuevaTransferencia);
     }

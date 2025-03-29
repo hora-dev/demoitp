@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -25,5 +26,7 @@ public class Transferencia {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_empresa")
     private Empresa empresa;
+
+    private LocalDate fechaTransferencia;
 
 }

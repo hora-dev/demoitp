@@ -10,6 +10,7 @@ public class TransferenciaMapper {
                 .cuentaCredito(transferencia.getCuentaCredito())
                 .cuentaDebito(transferencia.getCuentaDebito())
                 .idEmpresa(transferencia.getEmpresa().getId())
+                .fechaTransferencia(transferencia.getFechaTransferencia())
                 .build();
     }
 }

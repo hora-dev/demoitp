@@ -8,9 +8,11 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class EmpresaDTO {
 
+    private Long id;
     private String cuit;
 
     @NotEmpty
