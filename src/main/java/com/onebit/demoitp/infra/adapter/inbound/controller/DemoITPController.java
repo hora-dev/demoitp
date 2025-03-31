@@ -8,10 +8,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -23,7 +20,7 @@ public class DemoITPController {
 
     private final DemoITPCasoDeUsoImpl demoITPCasoDeUsoImpl;
 
-    @PostMapping("/obtenerEmpresasConTransferenciasUltimoMes/{fechaActual}")
+    @GetMapping("/empresasConTransferenciasUltimoMes/{fechaActual}")
     public ResponseEntity<?> obtenerEmpresasConTransferenciasUltimoMes(@PathVariable LocalDate fechaActual) {
         return ResponseEntity.ok(demoITPCasoDeUsoImpl.obtenerEmpresasConTransferenciasUltimoMes(fechaActual));
     }
@@ -36,7 +33,7 @@ public class DemoITPController {
         return ResponseEntity.badRequest().body(errores);
     }
 
-    @PostMapping("/obtenerEmpresasConAdhesionUltimoMes/{fechaActual}")
+    @GetMapping("/empresasConAdhesionUltimoMes/{fechaActual}")
     public ResponseEntity<?> obtenerEmpresasConAdhesionUltimoMes(@PathVariable LocalDate fechaActual) {
         return ResponseEntity.ok(demoITPCasoDeUsoImpl.obtenerEmpresasConAdhesionUltimoMes(fechaActual));
     }
