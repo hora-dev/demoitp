@@ -23,7 +23,7 @@ public class Transferencia {
     private String cuentaDebito;
     private String cuentaCredito;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresa empresa;
 
