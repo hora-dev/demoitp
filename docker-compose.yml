@@ -3,12 +3,12 @@ services:
   db:
     image: mysql
     ports:
-      - "3306:3306" # Mapea el puerto 3306 del host al puerto 3306 del contenedor
+      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 1234 # Establece una contraseña segura
-      MYSQL_DATABASE: demoitpdb # Opcional: crea una base de datos al inicio
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: demoitpdb
     volumes:
-      - mysql_data:/var/lib/mysql # Persistencia de datos
+      - mysql_data:/var/lib/mysql
 
 volumes:
   mysql_data:
