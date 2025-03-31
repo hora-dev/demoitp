@@ -22,8 +22,8 @@ public class DataLoader implements CommandLineRunner {
 
     private final EmpresaRepository empresaRepository;
     private final TransferenciaRepository transferenciaRepository;
-    private final EntityManager entityManager;
 
+    @Transactional
     @Override
     public void run(String... args) throws Exception {
         long cantEmpresas = empresaRepository.count();
@@ -47,7 +47,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Transactional
-    private void cargarEmpresas() {
+    public void cargarEmpresas() {
         empresaRepository.save(Empresa.builder()
                 .cuit("30123456789")
                 .razonSocial("Empresa Burger King")
@@ -66,7 +66,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Transactional
-    private void cargarTransferencias() {
+    public void cargarTransferencias() {
         transferenciaRepository.save(Transferencia.builder()
                 .importe(new BigDecimal("1000"))
                 .cuentaDebito("123456789")
