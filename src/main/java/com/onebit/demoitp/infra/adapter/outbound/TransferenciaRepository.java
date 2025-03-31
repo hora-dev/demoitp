@@ -18,11 +18,4 @@ public interface TransferenciaRepository extends CrudRepository<Transferencia, L
     )
     List<Long> obtenerEmpresasConTransferenciasUltimoMes(LocalDate fecha);
 
-    @Query
-    (
-            value = "select id_empresa from transferencia t, empresa e where e.fecha_adhesion <= :fecha and" +
-                    " e.fecha_adhesion >= :fecha - interval '1' month and t.id_empresa = e.id",
-            nativeQuery = true
-    )
-    List<Long> obtenerEmpresasConFechaAdhesionUltimoMes(LocalDate fecha);
 }

@@ -106,14 +106,14 @@ public class DemoItPCasoDeUsoImplTest {
 
     @Test
     public void obtenerEmpresasConAdhesionUltimoMesOK() {
-        when(transferenciaRepository.obtenerEmpresasConFechaAdhesionUltimoMes(currentDate)).thenReturn(List.of(1L, 2L, 3L));
+        when(empresaRepository.obtenerEmpresasConFechaAdhesionUltimoMes(currentDate)).thenReturn(List.of(1L, 2L, 3L));
         when(empresaRepository.findAllById(any())).thenReturn(List.of(empresa1, empresa2, empresa3));
 
         List<EmpresaDTO> empresaIdList = demoITPCasoDeUsoImpl.obtenerEmpresasConAdhesionUltimoMes(currentDate);
 
         assertNotNull(empresaIdList);
         assertNotEmpty(empresaIdList, "No se encontraron empresas con adhesion en el ultimo mes");
-        verify(transferenciaRepository, times(1)).obtenerEmpresasConFechaAdhesionUltimoMes(currentDate);
+        verify(empresaRepository, times(1)).obtenerEmpresasConFechaAdhesionUltimoMes(currentDate);
     }
 
     @Test

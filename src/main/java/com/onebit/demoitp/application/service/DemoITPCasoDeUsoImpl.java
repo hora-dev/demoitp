@@ -35,7 +35,7 @@ public class DemoITPCasoDeUsoImpl implements DemoITPCasoDeUso {
     @Override
     @Transactional
     public List<EmpresaDTO> obtenerEmpresasConAdhesionUltimoMes(LocalDate fecha) {
-        List<Long> ids = transferenciaRepository.obtenerEmpresasConFechaAdhesionUltimoMes(fecha);
+        List<Long> ids = empresaRepository.obtenerEmpresasConFechaAdhesionUltimoMes(fecha);
         List<Empresa> empresaList = (List<Empresa>) empresaRepository.findAllById(ids);
         return empresaList.stream().map(
                 empresa -> EmpresaMapper.toDTO(empresa)
