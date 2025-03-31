@@ -13,6 +13,6 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Demo ITP API")
                         .version("0.0.1-SNAPSHOT")
-                        .description("API para manejar empresas y transferencia"));
+                        .description("API para manejar empresas y transferencias"));
     }
 }
