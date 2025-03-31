@@ -10,6 +10,7 @@ import com.onebit.demoitp.infra.adapter.outbound.EmpresaRepository;
 import com.onebit.demoitp.infra.adapter.outbound.TransferenciaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ public class TransferenciaCasoDeUsoImpl implements TransferenciaCasoDeUso {
     private final EmpresaRepository empresaRepository;
 
     @Override
+    @Transactional
     public Transferencia guardar(TransferenciaDTO transferenciaDTO) {
         Empresa empresa = empresaRepository
                 .findById(transferenciaDTO.getIdEmpresa())
@@ -36,6 +38,7 @@ public class TransferenciaCasoDeUsoImpl implements TransferenciaCasoDeUso {
     }
 
     @Override
+    @Transactional
     public Optional<TransferenciaDTO> porId(Long id) {
         return transferenciaRepository.findById(id)
                 .map(transferencia -> TransferenciaMapper.toDTO(transferencia));

@@ -6,6 +6,7 @@ import com.onebit.demoitp.domain.Empresa;
 import com.onebit.demoitp.infra.adapter.inbound.dto.EmpresaDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class EmpresaCasoDeUsoImpl implements EmpresaCasoDeUso {
     private final EmpresaRepository empresaRepository;
 
     @Override
+    @Transactional
     public Empresa guardar(EmpresaDTO empresaDTO) {
         Empresa nuevaEmpresa = Empresa.builder()
                 .cuit( empresaDTO.getCuit() )
@@ -26,6 +28,7 @@ public class EmpresaCasoDeUsoImpl implements EmpresaCasoDeUso {
     }
 
     @Override
+    @Transactional
     public Optional<Empresa> porId(Long id) {
         return empresaRepository.findById( id );
     }
